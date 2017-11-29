@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/activity_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+    <!--上面是一个toolbar作为表头，内容自己填充-->
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        tl:contentInsetStart="0dp">
+
+    </android.support.v7.widget.Toolbar>
+
+    <!--中间是内容fragment,动态添加-->
+    <LinearLayout
+        android:id="@+id/linearlayout_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
+    <!--底部为自定义导航页-->
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/main_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#eeeeee"
+        android:padding="5dp"
+        tl:tl_iconHeight="30dp"
+        tl:tl_iconWidth="30dp"
+        tl:tl_indicator_color="#ff0000"
+        tl:tl_indicator_height="0dp"
+        tl:tl_textSelectColor="#ff00"
+        tl:tl_textUnselectColor="#000000"
+        tl:tl_textsize="14sp"
+        tl:tl_underline_height="0dp"/>
+
+</LinearLayout>
+
