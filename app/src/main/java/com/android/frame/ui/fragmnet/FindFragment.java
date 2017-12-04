@@ -4,7 +4,7 @@ import com.android.frame.R;
 import com.android.frame.base.BaseFragment;
 
 
-public class Fragment2 extends BaseFragment{
+public class FindFragment extends BaseFragment {
     @Override
     public void initView() {
 
@@ -12,13 +12,12 @@ public class Fragment2 extends BaseFragment{
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment2;
+        return R.layout.fragment3;
     }
 
-    public static Fragment2 instanceFragment(){
+    public static FindFragment instanceFragment(){
 
-        Fragment2 fragment2=new Fragment2();
-        return fragment2;
+        FindFragment findFragment =new FindFragment();
+        return findFragment;
     }
-
 }

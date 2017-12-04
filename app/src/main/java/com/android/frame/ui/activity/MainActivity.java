@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.android.frame.R;
 import com.android.frame.base.BaseActivity;
-import com.android.frame.ui.fragmnet.Fragment1;
-import com.android.frame.ui.fragmnet.Fragment2;
-import com.android.frame.ui.fragmnet.Fragment3;
-import com.android.frame.ui.fragmnet.Fragment4;
+import com.android.frame.ui.fragmnet.FindFragment;
+import com.android.frame.ui.fragmnet.ProfileFragment;
+import com.android.frame.ui.fragmnet.WeChatFragment;
+import com.android.frame.ui.fragmnet.ContactListFragment;
 import com.android.frame.ui.other.TabEntity;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -18,10 +18,10 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
-    private Fragment1 fragment1;
-    private Fragment2 fragment2;
-    private Fragment3 fragment3;
-    private Fragment4 fragment4;
+    private WeChatFragment weChatFragment;
+    private ContactListFragment contactListFragment;
+    private FindFragment findFragment;
+    private ProfileFragment profileFragment;
     public static final String HOME_CURRENT_TAB_POSITION = "HOME_CURRENT_TAB_POSITION";
 
     private CommonTabLayout bottomTabLayout;
@@ -73,22 +73,22 @@ public class MainActivity extends BaseActivity {
         int currentTabPosition = 0;
         if (savedInstanceState != null) {//判断保留的数据是否为空
 
-            fragment1 = (Fragment1) getSupportFragmentManager().findFragmentByTag("fragment");
-            fragment2 = (Fragment2) getSupportFragmentManager().findFragmentByTag("fragment2");
-            fragment3 = (Fragment3) getSupportFragmentManager().findFragmentByTag("fragment3");
-            fragment4 = (Fragment4) getSupportFragmentManager().findFragmentByTag("fragment4");
+            weChatFragment = (WeChatFragment) getSupportFragmentManager().findFragmentByTag("fragment");
+            contactListFragment = (ContactListFragment) getSupportFragmentManager().findFragmentByTag("contactListFragment");
+            findFragment = (FindFragment) getSupportFragmentManager().findFragmentByTag("findFragment");
+            profileFragment = (ProfileFragment) getSupportFragmentManager().findFragmentByTag("profileFragment");
             currentTabPosition = savedInstanceState.getInt(HOME_CURRENT_TAB_POSITION);
         } else {
-            fragment1 = Fragment1.instanceFragment();
-            fragment2 = Fragment2.instanceFragment();
-            fragment3 = Fragment3.instanceFragment();
-            fragment4 = Fragment4.instanceFragment();
+            weChatFragment = WeChatFragment.instanceFragment();
+            contactListFragment = ContactListFragment.instanceFragment();
+            findFragment = FindFragment.instanceFragment();
+            profileFragment = ProfileFragment.instanceFragment();
 
             //transaction里添加fragment
-            transaction.add(R.id.linearlayout_main, fragment1, "fragment1");
-            transaction.add(R.id.linearlayout_main, fragment2, "fragment2");
-            transaction.add(R.id.linearlayout_main, fragment3, "fragment3");
-            transaction.add(R.id.linearlayout_main, fragment4, "fragment4");
+            transaction.add(R.id.linearlayout_main, weChatFragment, "weChatFragment");
+            transaction.add(R.id.linearlayout_main, contactListFragment, "contactListFragment");
+            transaction.add(R.id.linearlayout_main, findFragment, "findFragment");
+            transaction.add(R.id.linearlayout_main, profileFragment, "profileFragment");
 
         }
         transaction.commit();
@@ -100,31 +100,31 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (position) {
             case 0:
-                transaction.show(fragment1);
-                transaction.hide(fragment2);
-                transaction.hide(fragment3);
-                transaction.hide(fragment4);
+                transaction.show(weChatFragment);
+                transaction.hide(contactListFragment);
+                transaction.hide(findFragment);
+                transaction.hide(profileFragment);
                 transaction.commitAllowingStateLoss();
                 break;
             case 1:
-                transaction.show(fragment2);
-                transaction.hide(fragment1);
-                transaction.hide(fragment3);
-                transaction.hide(fragment4);
+                transaction.show(contactListFragment);
+                transaction.hide(weChatFragment);
+                transaction.hide(findFragment);
+                transaction.hide(profileFragment);
                 transaction.commitAllowingStateLoss();
                 break;
             case 2:
-                transaction.show(fragment3);
-                transaction.hide(fragment2);
-                transaction.hide(fragment1);
-                transaction.hide(fragment4);
+                transaction.show(findFragment);
+                transaction.hide(contactListFragment);
+                transaction.hide(weChatFragment);
+                transaction.hide(profileFragment);
                 transaction.commitAllowingStateLoss();
                 break;
             case 3:
-                transaction.show(fragment4);
-                transaction.hide(fragment2);
-                transaction.hide(fragment3);
-                transaction.hide(fragment1);
+                transaction.show(profileFragment);
+                transaction.hide(contactListFragment);
+                transaction.hide(findFragment);
+                transaction.hide(weChatFragment);
                 transaction.commitAllowingStateLoss();
                 break;
             default:
