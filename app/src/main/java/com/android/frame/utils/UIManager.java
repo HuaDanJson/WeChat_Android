@@ -3,7 +3,7 @@ package com.android.frame.utils;
 import android.content.Context;
 import android.content.Intent;
 
-import com.android.frame.ui.MainActivity;
+import com.android.frame.ui.activity.MainActivity;
 
 
 public class UIManager {

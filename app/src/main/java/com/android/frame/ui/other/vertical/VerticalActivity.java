@@ -29,36 +29,13 @@ public class VerticalActivity extends BaseActivity implements VerticalContract.V
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //view   findviewbyid
-        // setonclick    setAdapter
-        //view.set();
-    }
-
-    @Override
-    protected void initView(Bundle savedInstanceState) {
+        setContentView(R.layout.activity_vertical);
         presenter = new VerticalPresenter(this);
         presenter.getVerticalFromDb();
         Map<String, String> params = new HashMap<String, String>();
         params.put(UrlConfig.Key.LIMIT, UrlConfig.DefaultValue.LIMIT);
         params.put(UrlConfig.Key.OFFSET, UrlConfig.DefaultValue.OFFSET);
         presenter.getVertical(params);
-    }
-
-
-//    @Override
-//    protected void initView() {
-//        presenter = new VerticalPresenter(this);
-//        presenter.getVerticalFromDb();
-//        Map<String, String> params = new HashMap<String, String>();
-//        params.put(UrlConfig.Key.LIMIT, UrlConfig.DefaultValue.LIMIT);
-//        params.put(UrlConfig.Key.OFFSET, UrlConfig.DefaultValue.OFFSET);
-//        presenter.getVertical(params);
-//    }
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.activity_vertical;
     }
 
     @Override
